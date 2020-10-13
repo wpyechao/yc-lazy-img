@@ -30,20 +30,18 @@ const LazyImg: React.FC<ILazyImgProps> = (props) => {
       }
     }
 
+    if(Subscribers.size === 0) {
+      // 注册eventListener
+      document.addEventListener('scroll', handleScroll)
+    }
+
     Subscribers.add(handleLazyLoad)
     handleScroll()
 
-    if (Subscribers.size !== 0) {
-      return () => {
-        Subscribers.delete(handleLazyLoad)
-      }
-    } else {
-      // 注册eventListener，并添加订阅
-      document.addEventListener('scroll', handleScroll)
-
-      return () => {
+    return () => {
+      Subscribers.delete(handleLazyLoad)
+      if(Subscribers.size === 0) {
         document.removeEventListener('scroll', handleScroll)
-        Subscribers.delete(handleLazyLoad)
       }
     }
   }, [offset])
