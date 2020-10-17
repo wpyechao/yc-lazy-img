@@ -2,26 +2,10 @@
 
 ## Getting Started
 
-Install dependencies,
+```tsx
+import LazyImg from 'yc-lazy-img'
 
-```bash
-$ npm i
-```
+// props 和原生img标签一致
 
-Start the dev server,
-
-```bash
-$ npm start
-```
-
-Build documentation,
-
-```bash
-$ npm run docs:build
-```
-
-Build library via `father-build`,
-
-```bash
-$ npm run build
+const Demo = () => <LazyImg src={'/static/111.png'}>
 ```
