@@ -22,9 +22,9 @@ const LazyImg: React.FC<ILazyImgProps> = (props) => {
   React.useLayoutEffect(() => {
     function handleLazyLoad() {
       if(domRef.current) {
-        const clientHeight = document.body.clientHeight || window.innerHeight
-        const { top: imgTop } = domRef.current.getBoundingClientRect()
-        if (imgTop <= clientHeight + offset) {
+        const clientHeight = document.documentElement.clientHeight || window.innerHeight
+        const { top: imgTop, bottom: imgBottom } = domRef.current.getBoundingClientRect()
+        if (imgTop <= clientHeight + offset && -imgBottom < offset) {
           setShow(true)
         }
       }
