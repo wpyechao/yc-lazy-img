@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "yc-lazy-img",
   "version": "1.0.0",
   "scripts": {
@@ -13,6 +12,12 @@
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
+  "files": [
+    "es",
+    "lib",
+    "package.json",
+    "README.md"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
